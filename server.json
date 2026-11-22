@@ -1,0 +1,42 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.argorant/flatverify",
+  "title": "Flatverify",
+  "description": "Verify email addresses from your AI on a flat monthly plan. Every plan is unlimited.",
+  "version": "1.0.0",
+  "websiteUrl": "https://flatverify.com/integrations",
+  "repository": {
+    "url": "https://github.com/argorant/flatverify-mcp",
+    "source": "github"
+  },
+  "icons": [
+    {
+      "src": "https://flatverify.com/brand/seal-icon.svg",
+      "mimeType": "image/svg+xml",
+      "sizes": ["any"]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.flatverify.com/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Optional. Leave empty to sign in with OAuth. Or paste a Flatverify API key from app.flatverify.com, API keys.",
+          "isRequired": false,
+          "isSecret": true,
+          "value": "Bearer {api_key}",
+          "variables": {
+            "api_key": {
+              "description": "Your Flatverify API key (starts with fv_).",
+              "isRequired": false,
+              "isSecret": true,
+              "placeholder": "fv_..."
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
